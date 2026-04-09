@@ -1,0 +1,8 @@
+/Users/omerapaydin/Desktop/Back-end/net8.0/StoreAppLearn/StoreAppLearn/obj/Debug/net9.0/StoreAppLearn.csproj.AssemblyReference.cache
+/Users/omerapaydin/Desktop/Back-end/net8.0/StoreAppLearn/StoreAppLearn/obj/Debug/net9.0/StoreAppLearn.GeneratedMSBuildEditorConfig.editorconfig
+/Users/omerapaydin/Desktop/Back-end/net8.0/StoreAppLearn/StoreAppLearn/obj/Debug/net9.0/StoreAppLearn.AssemblyInfoInputs.cache
+/Users/omerapaydin/Desktop/Back-end/net8.0/StoreAppLearn/StoreAppLearn/obj/Debug/net9.0/StoreAppLearn.AssemblyInfo.cs
+/Users/omerapaydin/Desktop/Back-end/net8.0/StoreAppLearn/StoreAppLearn/obj/Debug/net9.0/StoreAppLearn.csproj.CoreCompileInputs.cache
+/Users/omerapaydin/Desktop/Back-end/net8.0/StoreAppLearn/StoreAppLearn/obj/Debug/net9.0/StoreAppLearn.MvcApplicationPartsAssemblyInfo.cache
+/Users/omerapaydin/Desktop/Back-end/net8.0/StoreAppLearn/StoreAppLearn/obj/Debug/net9.0/StoreAppLearn.RazorAssemblyInfo.cache
+/Users/omerapaydin/Desktop/Back-end/net8.0/StoreAppLearn/StoreAppLearn/obj/Debug/net9.0/StoreAppLearn.RazorAssemblyInfo.cs
