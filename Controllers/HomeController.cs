@@ -23,6 +23,7 @@ namespace StoreAppLearn.Controllers
             _storerepository
             .Products
             .Skip((page - 1) * pageSize)
+            .Take(pageSize)
             .Select(p => 
             new ProductViewModel
                 {
@@ -32,7 +33,14 @@ namespace StoreAppLearn.Controllers
                     Price = p.Price,
                     Category = p.Category
                 }).ToList();
-            return View(new ProductListViewModel { Products = products });
+            return View(new ProductListViewModel { 
+                Products = products,
+                PagingInfo = new PagingInfo
+                {
+                    TotalItems = _storerepository.Products.Count(),
+                    ItemsPerPage = pageSize
+                }
+                 });
         }
     }
 }

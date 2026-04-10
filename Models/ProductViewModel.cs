@@ -17,6 +17,8 @@ namespace StoreAppLearn.Models
     public class ProductListViewModel
     {
         public List<ProductViewModel>? Products { get; set; }
+        public PagingInfo? PagingInfo { get; set; } = new();
+        
     }
 
     public class PagingInfo

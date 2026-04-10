@@ -16,3 +16,9 @@
         <p>@product.Price</p>
     </div>
 }
+
+
+@for(var i = 1; i <= Model.PagingInfo.TotalPages; i++)
+{
+    <a href="/?page=@i">@i</a>
+}
