@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using StoreAppLearn.Data.Abstract;
+using StoreAppLearn.Models;
 
 namespace StoreAppLearn.Controllers
 {
@@ -14,6 +15,17 @@ namespace StoreAppLearn.Controllers
         {
             _storerepository = storerepository;
         }
-        public IActionResult Index() => View();
+        public IActionResult Index()
+        {
+            var products = _storerepository.Products.Select(p => new ProductViewModel
+            {
+                Id = p.Id,
+                Name = p.Name,
+                Description = p.Description,
+                Price = p.Price,
+                Category = p.Category
+            }).ToList();
+            return View(products);
+        }
     }
 }
