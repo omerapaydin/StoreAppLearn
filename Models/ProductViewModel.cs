@@ -13,4 +13,11 @@ namespace StoreAppLearn.Models
         public decimal Price { get; set; }
         public string? Category { get; set; }
     }
+
+    public class ProductListViewModel
+    {
+        public List<ProductViewModel>? Products { get; set; }
+    }
+
+
 }

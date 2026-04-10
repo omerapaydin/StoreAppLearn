@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using StoreAppLearn.Data.Abstract;
+using StoreAppLearn.Entity;
 using StoreAppLearn.Models;
 
 namespace StoreAppLearn.Controllers
@@ -25,7 +26,7 @@ namespace StoreAppLearn.Controllers
                 Price = p.Price,
                 Category = p.Category
             }).ToList();
-            return View(products);
+            return View(new ProductListViewModel { Products = products });
         }
     }
 }
