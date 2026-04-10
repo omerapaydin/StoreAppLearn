@@ -38,7 +38,7 @@ namespace StoreAppLearn.Controllers
                 PagingInfo = new PagingInfo
                 {
                     TotalItems = _storerepository.Products.Count(),
-                    ItemsPerPage = pageSize
+                    ItemsPerPage = pageSize,
                 }
                  });
         }

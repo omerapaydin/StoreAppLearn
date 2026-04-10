@@ -1,24 +1,43 @@
 @model ProductListViewModel
 
-
-@if (!Model.Products.Any())
-{
-    <p>No products found.</p>
-}
-
-
-
-@foreach (var product in Model.Products)
-{
-    <div>
-        <h2>@product.Name</h2>
-        <p>@product.Description</p>
-        <p>@product.Price</p>
+<div class="row">
+    <div class="col-md-3">
+        <vc:categories-list />
     </div>
-}
+    <div class="col-md-9">
+        @if(Model.Products.Count() == 0)
+        {
+            <p>Ürün bulunamadı.</p>
+        }
+
+        @foreach(var p in Model.Products)
+        {
+            <div class="card card-outline-secondary mb-2 p-2">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h4>@p.Name</h4>
+                        <p>@p.Description</p>
+                    </div>
+                    <div>
+                        <span class="badge rounded-pill text-bg-success">@p.Price TL</span>
+                    </div>
+                </div>
+            </div>
+        }
+
+          <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center mt-4">
+
+                @for (var i = 1; i <= Model.PagingInfo.TotalPages; i++)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="/?page=@i">@i</a>
+                    </li>
+                }
+
+            </ul>
+        </nav>
+    </div>
+</div>
 
 
-@for(var i = 1; i <= Model.PagingInfo.TotalPages; i++)
-{
-    <a href="/?page=@i">@i</a>
-}

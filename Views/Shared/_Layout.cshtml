@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+          <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+
     <title>Document</title>
 </head>
 <body>
-    @RenderBody()
+    <div class="bg-secondary text-white p-3">
+        <div class="container">
+            <span class="navbar-brand">Store App</span>
+        </div>
+    </div> 
+    <div class="container my-3">
+        @RenderBody()
+    </div>
+
+   
 </body>
 </html>
