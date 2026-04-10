@@ -11,21 +11,27 @@ namespace StoreAppLearn.Controllers
 {
     public class HomeController:Controller
     {
+        public int pageSize = 3;
         private readonly IStoreRepository _storerepository;
         public HomeController(IStoreRepository storerepository)
         {
             _storerepository = storerepository;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            var products = _storerepository.Products.Select(p => new ProductViewModel
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Description = p.Description,
-                Price = p.Price,
-                Category = p.Category
-            }).ToList();
+            var products = 
+            _storerepository
+            .Products
+            .Skip((page - 1) * pageSize)
+            .Select(p => 
+            new ProductViewModel
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Description = p.Description,
+                    Price = p.Price,
+                    Category = p.Category
+                }).ToList();
             return View(new ProductListViewModel { Products = products });
         }
     }
