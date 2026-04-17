@@ -31,7 +31,7 @@ namespace StoreAppLearn.Controllers
                     Name = p.Name,
                     Description = p.Description,
                     Price = p.Price,
-                    Category = p.Category
+                    Category = p.Categories.FirstOrDefault()!.Name
                 }).ToList();
             return View(new ProductListViewModel { 
                 Products = products,

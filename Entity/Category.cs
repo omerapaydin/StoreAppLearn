@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace StoreAppLearn.Entity
 {
-    public class Product
+    public class Category
     {
         public int Id { get; set; }
         public string? Name { get; set; }
-        public string? Description { get; set; }
-        public decimal Price { get; set; }
-        public List<Category> Categories { get; set; } = new();
+        public string? Url { get; set; }
+        public List<Product> Products { get; set; } = new();
+
     }
 }
