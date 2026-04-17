@@ -17,10 +17,14 @@ namespace StoreAppLearn.Components
         public IViewComponentResult Invoke()
         {
             return View(_storeRepository
-                .Products
-                .Select(p => p.Categories.FirstOrDefault()!.Name)
-                .Distinct()
-                .OrderBy(c => c));
+                .Categories
+                .Select(c => new Models.CategoryViewModel
+                {
+                    Id = c.Id,
+                    Name = c.Name,
+                    Url = c.Url
+                })
+                .ToList());
         }
     }
 }
