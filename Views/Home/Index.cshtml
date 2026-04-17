@@ -25,7 +25,9 @@
             </div>
         }
 
-          <nav aria-label="Page navigation">
+        @if(Model.PagingInfo.TotalPages > 1)
+        {
+             <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center mt-4">
 
                 @for (var i = 1; i <= Model.PagingInfo.TotalPages; i++)
@@ -37,6 +39,8 @@
 
             </ul>
         </nav>
+        }
+
     </div>
 </div>
 

@@ -21,12 +21,14 @@ builder.Services.AddScoped<IStoreRepository, EfStoreRepository>();
 var app = builder.Build();
 app.UseStaticFiles();
 
+app.MapControllerRoute("products_in_category" , "products/{category?}", new { controller = "Home", action = "Index" });
+
 app.MapControllerRoute("product_details" , "{name}", new { controller = "Home", action = "Details" });
 
-app.MapControllerRoute("products_in_category" , "products/{category}", new { controller = "Home", action = "Index" });
 
-// app.MapControllerRoute(
-//     name: "default",
-//     pattern: "{controller=Home}/{action=Index}/{id?}"); 
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}"); 
 
 app.Run();

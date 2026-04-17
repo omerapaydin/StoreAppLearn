@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using StoreAppLearn.Data.Abstract;
 using StoreAppLearn.Entity;
 using StoreAppLearn.Models;
@@ -17,13 +18,11 @@ namespace StoreAppLearn.Controllers
         {
             _storerepository = storerepository;
         }
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(string category, int page = 1)
         {
-            var products = 
-            _storerepository
-            .Products
-            .Skip((page - 1) * pageSize)
-            .Take(pageSize)
+              
+            return View(new ProductListViewModel { 
+                Products = _storerepository.GetProductsByCategory(category, page, pageSize).Take(pageSize)
             .Select(p => 
             new ProductViewModel
                 {
@@ -32,12 +31,10 @@ namespace StoreAppLearn.Controllers
                     Description = p.Description,
                     Price = p.Price,
                     Category = p.Categories.FirstOrDefault()!.Name
-                }).ToList();
-            return View(new ProductListViewModel { 
-                Products = products,
+                }).ToList(),
                 PagingInfo = new PagingInfo
                 {
-                    TotalItems = _storerepository.Products.Count(),
+                    TotalItems = _storerepository.GetProductCount(category),
                     ItemsPerPage = pageSize,
                 }
                  });
