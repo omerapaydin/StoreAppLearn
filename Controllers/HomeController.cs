@@ -30,7 +30,7 @@ namespace StoreAppLearn.Controllers
                     Name = p.Name,
                     Description = p.Description,
                     Price = p.Price,
-                    Category = p.Categories.FirstOrDefault()!.Name
+                    Category = p.Categories.FirstOrDefault()?.Name
                 }).ToList(),
                 PagingInfo = new PagingInfo
                 {
