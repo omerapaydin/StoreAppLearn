@@ -39,5 +39,13 @@ namespace StoreAppLearn.Pages
            
             return RedirectToPage("/Cart");
         }
+        public IActionResult OnPostRemove(int id)
+        {
+            Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
+            var product = Cart.Items.FirstOrDefault(p => p.Product.Id == id)?.Product;
+            Cart?.RemoveItem(product);
+            HttpContext.Session.SetJson("cart", Cart);
+            return RedirectToPage("/Cart");
+        }
     }
 }

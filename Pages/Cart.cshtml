@@ -10,6 +10,7 @@
             <th>Item</th>
             <th>Price</th>
             <th>Total</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +21,12 @@
                 <td>@item.Product.Name</td>
                 <td>@item.Product.Price.ToString("C")</td>
                 <td>@(item.Product.Price * item.Quantity)</td>
+                <td>
+                    <form method="post" asp-page-handler="Remove">
+                        <input type="hidden" name="id" value="@item.Product.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                    </form>
+                </td>
             </tr>
         }
     </tbody>
