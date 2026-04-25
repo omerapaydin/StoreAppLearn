@@ -13,7 +13,7 @@ namespace StoreAppLearn.Controllers
        
         public IActionResult Checkout()
         {            
-                var cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
+            var cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
             return View(new OrderModel() { Cart = cart });
         }
         
