@@ -15,6 +15,7 @@ namespace StoreAppLearn.Data.Concrete
 
         public DbSet<Product> Products => Set<Product>();
         public DbSet<Category> Categories => Set<Category>();
+        public DbSet<Order> Orders => Set<Order>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
