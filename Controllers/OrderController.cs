@@ -52,7 +52,7 @@ namespace StoreAppLearn.Controllers
                 _orderRepository.SaveOrder(order);
                 cart.Clear();
                 HttpContext.Session.SetJson("cart", cart);
-                return RedirectToPage("/Completed");
+                return RedirectToPage("/Completed",new { orderId = order.Id });
             }
 
             else
