@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using StoreAppLearn.Data.Abstract;
 using StoreAppLearn.Data.Concrete;
+using StoreAppLearn.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +20,7 @@ builder.Services.AddScoped<IStoreRepository, EfStoreRepository>();
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
-
+builder.Services.AddScoped<Cart>();
 
 var app = builder.Build();
 app.UseStaticFiles();
