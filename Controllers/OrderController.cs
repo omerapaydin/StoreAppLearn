@@ -44,7 +44,7 @@ namespace StoreAppLearn.Controllers
                     OrderDate = DateTime.Now,
                     OrderItems = cart.Items.Select(i => new OrderItem
                     {
-                        Id = i.Product.Id,
+                        ProductId = i.Product.Id,
                         Price = (double)i.Product.Price,
                         Quantity = i.Quantity
                     }).ToList()

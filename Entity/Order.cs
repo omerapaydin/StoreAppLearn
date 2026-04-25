@@ -23,8 +23,8 @@ namespace StoreAppLearn.Entity
         public int Id { get; set; }
         public int OrderId { get; set; }
         public Order Order { get; set; } = null!;
-        public int PostId { get; set; }
-        public Product product { get; set; } = null!;
+        public int ProductId { get; set; } 
+        public Product Product { get; set; } = null!;
         public double Price { get; set; }
         public int Quantity { get; set; }
     }

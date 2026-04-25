@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StoreAppLearn.Data.Concrete;
 
@@ -10,9 +11,11 @@ using StoreAppLearn.Data.Concrete;
 namespace StoreAppLearn.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    partial class StoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260425221731_AddOrderTable1")]
+    partial class AddOrderTable1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.0");
@@ -100,20 +103,23 @@ namespace StoreAppLearn.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("PostId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<double>("Price")
                         .HasColumnType("REAL");
 
-                    b.Property<int>("ProductId")
+                    b.Property<int>("Quantity")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Quantity")
+                    b.Property<int>("productId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
                     b.HasIndex("OrderId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("productId");
 
                     b.ToTable("OrderItem");
                 });
@@ -242,15 +248,15 @@ namespace StoreAppLearn.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("StoreAppLearn.Entity.Product", "Product")
+                    b.HasOne("StoreAppLearn.Entity.Product", "product")
                         .WithMany()
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("productId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Order");
 
-                    b.Navigation("Product");
+                    b.Navigation("product");
                 });
 
             modelBuilder.Entity("StoreAppLearn.Entity.ProductCategory", b =>
